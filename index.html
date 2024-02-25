@@ -23,6 +23,18 @@
     // 🧠 Example of usage:
     // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
     function buildPeter() {
+       let result = 0
+      for (i = 0; i < nums.length; i++){
+        let element = nums[i]
+      if (typeof element === 'number'){
+        if(element === 13){
+          return  "I'm too superstitious!"
+        }
+        result = result + element
+      }
+
+      }
+      return result;
 
     }
 
@@ -31,7 +43,16 @@
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
+      const split = str.split('')
+      const result = []
+      for (let idx = 0; idx < split.length; idx++){
+        const char = split[idx]
+        if (char !== 'a' && char !== 'e' && char !== 'i' && char !== 'o' && char !== 'u'){
+          result.push(char)
 
+        }
+      }
+      return result.join('')
     }
 
     // 👉 CHALLENGE 3
@@ -43,7 +64,19 @@
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
     function deletePrice() {
-
+       let result = 0
+      let idx = 0
+      while(idx < nums.length) {
+        let  elem = nums[idx]
+        if (typeof elem === 'number'){
+          if (elem === 13){
+            return "I'm too superstitious!"
+          }
+           result += elem
+        }
+        idx++
+      }
+      return result;
     }
 
     // 👉 CHALLENGE 4
@@ -53,6 +86,14 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
+       let round = 1
+      while (lifepoints > 0) {
+        lifepoints -= round
+        if (lifepoints <= 0) {
+          return `You died in round ${round}`
+        }
+        round++
+      }
 
     }
 
@@ -63,6 +104,14 @@
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
     function firstOrLast() {
+      let evens = []
+      for (let idx in ints){
+        let num = ints[idx]
+        if (num % 2 === 0){
+          evens.push(num)
+        }
+      }
+      return evens
 
     }
 
@@ -73,7 +122,18 @@
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
     function pushElement() {
-
+       let under21 = []
+      let others = []
+       
+      for (let idx = 0; idx < ages.length; idx++){
+        let age = ages[idx]
+        if (age < 21){
+          under21.push(age)
+        } else {
+          others.push(age)
+        }
+      }
+      return [under21, others
     }
 
     // 👉 CHALLENGE 7
@@ -89,6 +149,9 @@
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
     function stripX() {
+      let head = arr [0];
+      let tail = arr.slice(1)
+      return {head, tail}
 
     }
 
@@ -102,7 +165,28 @@
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
     function stripChar() {
+       let result = []
 
+
+      for (let idx in strings){
+
+        let word = strings[idx]
+
+        let modifiedword = ''
+
+        for(let idx in word){
+
+          let char = word[idx]
+          if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u'){
+            let upperCased =  char.toUpperCase()
+            modifiedword += upperCased
+          } else {
+            modifiedword += char
+          }
+        }
+        result.push(modifiedword)
+      }
+      return result;
     }
 
     // 👉 CHALLENGE 9
@@ -115,6 +199,12 @@
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
     function getProps() {
+      if (arr.length % 2 === 0){
+        arr.pop()
+        return arr
+      }else {
+        return arr.slice(1, arr.length - 1)
+      }
 
     }
 
